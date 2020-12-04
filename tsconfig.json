@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist-ts/",
+        "noImplicitAny": true,
+        "jsx": "react",
+        "target": "ES2015",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "types": ["node", "jest"],
+        "typeRoots": ["./node_modules/@types"]
+    }
+}
