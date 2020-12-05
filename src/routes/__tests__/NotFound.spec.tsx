@@ -1,8 +1,8 @@
-import React from "react"; 
+import React from "react";
 import { render } from "@testing-library/react";
-import { NotFound } from "../NotFound"; 
+import { NotFound } from "../NotFound";
 
-test("NotFound page renders as expected", () => { 
-    const { container } = render(<NotFound />)
-    expect(container.innerHTML).toMatchSnapshot();
-}); 
+test("NotFound page renders as expected", () => {
+  const { container } = render(<NotFound />);
+  expect(container.innerHTML).toMatchSnapshot();
+});
