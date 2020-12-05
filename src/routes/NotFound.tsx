@@ -10,5 +10,5 @@ const CenteredDiv = styled.div`
 `;
 
 export const NotFound: FC<{}> = () => (
-  <CenteredDiv>The page you are looking for does not exist (yet).</CenteredDiv>
+  <CenteredDiv>The page you are looking for does not exist.</CenteredDiv>
 );
