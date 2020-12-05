@@ -55,13 +55,19 @@ export const Search: FC<Props> = ({ inputProps, height, onSearch }) => {
     const input = useRef<HTMLInputElement>() as RefObject<HTMLInputElement>; 
     
     useEffect(() => { 
-        input.current?.addEventListener('keydown', (ev: KeyboardEvent) => { if(ev.code === 'Enter' && input.current){ onSearch(input.current.value); }});
+        input.current?.addEventListener('keydown', (ev: KeyboardEvent) => { 
+            if(ev.code === 'Enter' && input.current){ 
+                onSearch(input.current.value);
+             }
+        });
     }, [input])
 
     return (
     <SearchContainer height={height}>
         <StyledInput ref={input} {...inputProps} />
-        <button onClick={() => { if(input.current) { onSearch(input.current.value); }}}><StyledFontAwesomeIcon icon={faSearch} /></button>
+        <button onClick={() => { if(input.current) { onSearch(input.current.value); }}}>
+            <StyledFontAwesomeIcon icon={faSearch} />
+        </button>
     </SearchContainer>
     )
 }

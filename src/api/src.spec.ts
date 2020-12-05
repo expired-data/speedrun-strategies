@@ -17,13 +17,20 @@ expect.extend({
     }
 })
 
-test("calling get games gives a set of game objects", async () => { 
-    expect((await getGames())[0]).toEqual(expect.objectContaining( 
+test("calling get games gives a set of game objects", async () => {     
+    const games = (await getGames());
+    games.forEach(game => expect(game).toEqual((expect.objectContaining( 
         {
             abbreviation: expect.any(String), 
             id: expect.any(String), 
             names: expect.objectContaining({ international: expect.any(String), japanese: ((expect as unknown) as {stringOrNull: () => {}}).stringOrNull()}),
             weblink: expect.any(String), 
         }
-    )); 
+    )))); 
+})
+
+test("calling get games with a search term gives set of game objects filtered by the term", async () => { 
+    const games = (await getGames("skate"));
+
+    expect(games.map(game => game.names.international).filter(name => !name.toLowerCase().includes('skate'))).toHaveLength(0);
 })
