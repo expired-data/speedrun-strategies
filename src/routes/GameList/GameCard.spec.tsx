@@ -11,6 +11,7 @@ const MOCK_GAME: BulkGame = {
     japanese: null,
   },
   weblink: "",
+  links: [],
 };
 
 test("GameCard renders as expected", () => {

@@ -1,0 +1,80 @@
+{
+  "data": [
+    {
+      "id": "7dg8wg24",
+      "name": "Career 100%",
+      "weblink": "https://www.speedrun.com/skate1#Career_100%25",
+      "type": "per-game",
+      "rules": "End is after you beat Mega-Mayhem.",
+      "players": {
+        "type": "exactly",
+        "value": 1
+      },
+      "miscellaneous": false,
+      "links": [
+        {
+          "rel": "self",
+          "uri": "https://www.speedrun.com/api/v1/categories/7dg8wg24"
+        },
+        {
+          "rel": "game",
+          "uri": "https://www.speedrun.com/api/v1/games/vo6gen12"
+        },
+        {
+          "rel": "variables",
+          "uri": "https://www.speedrun.com/api/v1/categories/7dg8wg24/variables"
+        },
+        {
+          "rel": "records",
+          "uri": "https://www.speedrun.com/api/v1/categories/7dg8wg24/records"
+        },
+        {
+          "rel": "runs",
+          "uri": "https://www.speedrun.com/api/v1/runs?category=7dg8wg24"
+        },
+        {
+          "rel": "leaderboard",
+          "uri": "https://www.speedrun.com/api/v1/leaderboards/vo6gen12/category/7dg8wg24"
+        }
+      ]
+    },
+    {
+      "id": "xd1mowd8",
+      "name": "X-Games%",
+      "weblink": "https://www.speedrun.com/skate1#X-Games",
+      "type": "per-game",
+      "rules": "End is after you gold medal both X-Games events.",
+      "players": {
+        "type": "exactly",
+        "value": 1
+      },
+      "miscellaneous": true,
+      "links": [
+        {
+          "rel": "self",
+          "uri": "https://www.speedrun.com/api/v1/categories/xd1mowd8"
+        },
+        {
+          "rel": "game",
+          "uri": "https://www.speedrun.com/api/v1/games/vo6gen12"
+        },
+        {
+          "rel": "variables",
+          "uri": "https://www.speedrun.com/api/v1/categories/xd1mowd8/variables"
+        },
+        {
+          "rel": "records",
+          "uri": "https://www.speedrun.com/api/v1/categories/xd1mowd8/records"
+        },
+        {
+          "rel": "runs",
+          "uri": "https://www.speedrun.com/api/v1/runs?category=xd1mowd8"
+        },
+        {
+          "rel": "leaderboard",
+          "uri": "https://www.speedrun.com/api/v1/leaderboards/vo6gen12/category/xd1mowd8"
+        }
+      ]
+    }
+  ]
+}

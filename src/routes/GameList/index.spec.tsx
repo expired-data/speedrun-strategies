@@ -22,6 +22,7 @@ const MOCK_GAMES: Array<BulkGame> = [
       japanese: null,
     },
     weblink: "",
+    links: [],
   },
   {
     abbreviation: "",
@@ -31,6 +32,7 @@ const MOCK_GAMES: Array<BulkGame> = [
       japanese: null,
     },
     weblink: "",
+    links: [],
   },
   {
     abbreviation: "",
@@ -40,6 +42,7 @@ const MOCK_GAMES: Array<BulkGame> = [
       japanese: null,
     },
     weblink: "",
+    links: [],
   },
 ];
 
