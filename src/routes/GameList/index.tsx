@@ -5,9 +5,13 @@ import { GameCard } from "./GameCard";
 import { Search } from "components/Search";
 import { useWindowSize } from "utils/useWindowSize";
 
-const FlexRow = styled.div`
+const TitleRow = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const FlexRow = styled.div`
+  display: flex;
 `;
 
 const SearchContainer = styled.div`
@@ -19,7 +23,7 @@ export const GamesList: FC<{}> = () => {
   const [games, setGames] = useState<Array<BulkGame>>([]);
   const [search, setSearch] = useState<string>("");
   const windowSize = useWindowSize();
-  const cardsPerRow = Math.floor((windowSize.width || 700) / 300);
+  const cardsPerRow = Math.floor((windowSize.width || 700) / 500);
 
   useEffect(() => {
     getGames(search).then((responseGames: Array<BulkGame>) =>
@@ -29,12 +33,12 @@ export const GamesList: FC<{}> = () => {
 
   return (
     <div>
-      <FlexRow>
+      <TitleRow>
         <h1>Games {search && `(${search})`}</h1>
         <SearchContainer data-testid="search">
           <Search onSearch={setSearch} />
         </SearchContainer>
-      </FlexRow>
+      </TitleRow>
       {games
         .map((game) => <GameCard game={game} key={game.id} />)
         .reduce((acc, cur, idx) => {

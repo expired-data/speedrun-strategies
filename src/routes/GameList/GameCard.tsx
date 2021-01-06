@@ -11,12 +11,15 @@ export interface Props {
 const Card = styled.div`
   border: 1px solid #cdcdcd;
   margin: 20px;
-  width: 200px;
+  width: 400px;
   height: 5em;
   padding: 5px;
   float: left;
+  font-size: large;
+
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+
   &:hover {
     box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;

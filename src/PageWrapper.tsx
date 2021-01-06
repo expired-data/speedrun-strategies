@@ -2,20 +2,21 @@ import styled from "styled-components";
 import React, { FC } from "react";
 
 const Content = styled.div`
-  margin: 30px 10vw 0;
-  padding: 10px;
+  margin: 60px 10vw 0;
+  padding: 50px;
   background-color: #eee;
   overflow: auto;
+  min-height: calc(100vh - 60px);
 `;
 
 const TopBanner = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  height: 30px;
+  height: 60px;
   width: 100%;
   background-color: #eee;
-  padding-left: 10px;
+  padding-left: 30px;
   box-shadow: 0 4px 8px -1px #ccc;
 `;
 
@@ -30,8 +31,8 @@ export const PageWrapper: FC<{}> = ({ children }) => (
   <>
     <TopBanner>
       <CenteredText>SRS</CenteredText>
+      {/* TODO replace with logo */}
     </TopBanner>{" "}
-    {/* TODO replace with logo */}
     <Content>{children}</Content>
   </>
 );
