@@ -1,16 +1,10 @@
 import React from "react";
-import {
-  findAllByRole,
-  findByText,
-  fireEvent,
-  render,
-  waitFor,
-} from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 
-import type { BulkGame } from "api/src";
+import type { BulkGame } from "api";
 import { GamesList } from "./";
 
-import { getGames } from "api/src";
+import { getGames } from "api";
 import { GameCard } from "./GameCard";
 
 const MOCK_GAMES: Array<BulkGame> = [
@@ -53,13 +47,14 @@ jest.mock("./GameCard", () => ({
   }),
 }));
 
-jest.mock("api/src", () => ({
+jest.mock("api", () => ({
   __esModule: true,
   getGames: jest.fn(
-    (searchTerm?: string): Promise<Array<BulkGame>> => {
+    (): Promise<Array<BulkGame>> => {
       return Promise.resolve(MOCK_GAMES);
     }
   ),
+  useGetData: jest.requireActual("api").useGetData,
 }));
 
 test("GamesList renders games cards from SRC api", async () => {

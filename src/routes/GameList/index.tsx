@@ -1,6 +1,6 @@
-import React, { useState, useEffect, FC, FormEvent } from "react";
+import React, { useState, FC } from "react";
 import styled from "styled-components";
-import { getGames, BulkGame } from "api/src";
+import { getGames, useGetData } from "api";
 import { GameCard } from "./GameCard";
 import { Search } from "components/Search";
 import { useWindowSize } from "utils/useWindowSize";
@@ -19,17 +19,15 @@ const SearchContainer = styled.div`
   align-items: center;
 `;
 
-export const GamesList: FC<{}> = () => {
-  const [games, setGames] = useState<Array<BulkGame>>([]);
+export const GamesList: FC = () => {
   const [search, setSearch] = useState<string>("");
+  const games = useGetData(getGames, search);
   const windowSize = useWindowSize();
   const cardsPerRow = Math.floor((windowSize.width || 700) / 500);
 
-  useEffect(() => {
-    getGames(search).then((responseGames: Array<BulkGame>) =>
-      setGames(responseGames)
-    );
-  }, [search]);
+  if (!games) {
+    return <>Loading...</>;
+  }
 
   return (
     <div>
@@ -49,7 +47,7 @@ export const GamesList: FC<{}> = () => {
           return acc;
         }, [] as JSX.Element[][])
         .map((arr, idx) => (
-          <FlexRow key={idx}>{...arr}</FlexRow>
+          <FlexRow key={idx}>{arr}</FlexRow>
         ))}
     </div>
   );

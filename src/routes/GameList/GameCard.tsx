@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
-import { BulkGame, getCategories, getLeaderboards, Leaderboard } from "api/src";
-import { splitTime } from "utils/time";
+import { BulkGame } from "api";
 
 export interface Props {
   game: BulkGame;
@@ -27,26 +27,12 @@ const Card = styled.div`
 `;
 
 export const GameCard: FC<Props> = ({ game }) => {
-  const [id, setId] = useState<Leaderboard | null>(null);
-  const [category, setCategory] = useState<string>("");
-  useEffect(() => {
-    getCategories(game.id).then((value) => {
-      setCategory(value[0].name);
-      getLeaderboards(value[0].id, game.id).then((leaderboard) => {
-        setId(leaderboard);
-      });
-    });
-  }, []);
-
-  const runTime = id ? id.runs[0]?.run.times.primary : "";
+  const history = useHistory();
 
   return (
-    <Card>
+    <Card onClick={() => history.push(`/game/${game.id}`)}>
       <span>{game.names.international}</span>
       <br />
-      <span>Main Category: {category}</span>
-      <br />
-      <span>WR Time: {runTime ? splitTime(runTime) : "No recorded runs"}</span>
     </Card>
   );
 };

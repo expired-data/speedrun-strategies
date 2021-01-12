@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 interface ContainerProps {
   height?: string;
@@ -33,8 +33,6 @@ const SearchContainer = styled.div<ContainerProps>`
   }
 
   input {
-    outline: none;
-    border: none;
     font-size: ${(props) => props.height || "1rem"};
   }
 
@@ -52,6 +50,8 @@ const SearchContainer = styled.div<ContainerProps>`
 const StyledInput = styled.input`
   flex: 1;
   padding-left: 5px;
+  outline: none;
+  border: none;
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
@@ -62,9 +62,9 @@ export const Search: FC<Props> = ({ inputProps, height, onSearch }) => {
   const input = useRef<HTMLInputElement>() as RefObject<HTMLInputElement>;
 
   useEffect(() => {
-    input.current?.addEventListener("keydown", (ev: KeyboardEvent) => {
-      if (ev.code === "Enter" && input.current) {
-        onSearch(input.current.value);
+    input.current!.addEventListener("keydown", (ev: KeyboardEvent) => {
+      if (ev.code === "Enter") {
+        onSearch(input.current!.value);
       }
     });
   }, [input]);
@@ -74,9 +74,7 @@ export const Search: FC<Props> = ({ inputProps, height, onSearch }) => {
       <StyledInput ref={input} {...inputProps} />
       <button
         onClick={() => {
-          if (input.current) {
-            onSearch(input.current.value);
-          }
+          onSearch(input.current!.value);
         }}
       >
         <StyledFontAwesomeIcon icon={faSearch} />

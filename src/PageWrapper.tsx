@@ -27,7 +27,7 @@ const CenteredText = styled.div`
   align-items: center;
 `;
 
-export const PageWrapper: FC<{}> = ({ children }) => (
+export const PageWrapper: FC = ({ children }) => (
   <>
     <TopBanner>
       <CenteredText>SRS</CenteredText>

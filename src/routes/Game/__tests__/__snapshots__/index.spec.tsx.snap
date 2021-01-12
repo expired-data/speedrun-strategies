@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Changing category updates runboard 1`] = `"<div class=\\"sc-bdfBwQ bhUiak\\"><div>Category: <select><option value=\\"1afhjfgierhj\\">any%</option><option value=\\"2afhjfgierhj\\">100%</option></select></div><div>Only show runs with strats <input type=\\"checkbox\\" checked=\\"\\"></div></div><div>RUNBOARD:2afhjfgierhj</div><div>strats only</div>"`;
+
+exports[`Changing checkbox updates state 1`] = `"<div class=\\"sc-bdfBwQ bhUiak\\"><div>Category: <select><option value=\\"1afhjfgierhj\\">any%</option><option value=\\"2afhjfgierhj\\">100%</option></select></div><div>Only show runs with strats <input type=\\"checkbox\\" checked=\\"\\"></div></div><div>RUNBOARD:1afhjfgierhj</div><div>strats not required</div>"`;
+
+exports[`Game renders with categories from src 1`] = `"<div class=\\"sc-bdfBwQ bhUiak\\"><div>Category: <select><option value=\\"1afhjfgierhj\\">any%</option><option value=\\"2afhjfgierhj\\">100%</option></select></div><div>Only show runs with strats <input type=\\"checkbox\\" checked=\\"\\"></div></div><div>RUNBOARD:1afhjfgierhj</div><div>strats only</div>"`;

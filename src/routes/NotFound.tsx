@@ -9,6 +9,6 @@ const CenteredDiv = styled.div`
   font-size: 2rem;
 `;
 /*Shows on 404 pages*/
-export const NotFound: FC<{}> = () => (
+export const NotFound: FC = () => (
   <CenteredDiv>The page you are looking for does not exist.</CenteredDiv>
 );

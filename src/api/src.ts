@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const apiBase = "https://www.speedrun.com/api/v1";
 
 export interface Names {
@@ -60,21 +62,51 @@ interface CategoriesResponseData {
   data: Array<Category>;
 }
 
-interface Time {
+export interface Time {
   primary: string;
   primary_t: number;
 }
 
-interface RunType {
+export interface UserStub {
+  id: string;
+  rel: "user";
+  uri: string;
+}
+
+export interface GuestStub {
+  name: string;
+  rel: "guest";
+  uri: string;
+}
+
+export type PlayerStub = UserStub | GuestStub;
+
+export interface Guest {
+  name: string;
+  rel: "guest";
+  uri: string;
+}
+
+export interface User {
+  id: string;
+  names: Names;
+  weblink: string;
+}
+
+export type Player = Guest | User;
+
+export interface RunType {
   id: string;
   weblink: string;
   game: string;
   level: string | null;
-  cateory: string;
+  category: string;
+  date: string;
+  players: Array<PlayerStub>;
   videos: {
     links: Array<{ uri: string }>;
   };
-  comment: string;
+  comment: string | null;
   times: Time;
 }
 
@@ -85,6 +117,7 @@ export interface Run {
 
 export interface Leaderboard {
   runs: Array<Run>;
+  players: { data: Player[] };
 }
 
 export const getGames = async (search?: string): Promise<Array<BulkGame>> => {
@@ -100,7 +133,7 @@ export const getGames = async (search?: string): Promise<Array<BulkGame>> => {
 };
 
 export const getCategories = async (id: string): Promise<Array<Category>> => {
-  let url = `${apiBase}/games/${id}/categories`;
+  const url = `${apiBase}/games/${id}/categories`;
 
   const response: CategoriesResponseData = await (await fetch(url)).json();
 
@@ -111,9 +144,24 @@ export const getLeaderboards = async (
   categoryId: string,
   gameId: string
 ): Promise<Leaderboard> => {
-  let url = `${apiBase}/leaderboards/${gameId}/category/${categoryId}`;
+  const url = `${apiBase}/leaderboards/${gameId}/category/${categoryId}?embed=players`;
 
   const response: { data: Leaderboard } = await (await fetch(url)).json();
 
   return response.data;
+};
+
+/*eslint-disable-next-line @typescript-eslint/no-explicit-any*/
+export const useGetData = <T, Args extends any[]>(
+  getDataFn: (...args: Args) => Promise<T>,
+  ...args: Args
+): T | undefined => {
+  const [data, setData] = useState<T | undefined>();
+
+  useEffect(() => {
+    setData(undefined);
+    getDataFn(...args).then(setData);
+  }, [...args]);
+
+  return data;
 };

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component with use hook can get data 1`] = `"Skate 3"`;
+
+exports[`component with use hook can get data 2`] = `"skate."`;
