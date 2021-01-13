@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameCard renders as expected 1`] = `"<div class=\\"sc-bdfBwQ fotAXy\\"><span>test game</span><br></div>"`;
