@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table renders with sample data 1`] = `"<table class=\\"sc-bdfBwQ kFtYhk\\" role=\\"table\\"><thead><tr role=\\"row\\" class=\\"sc-gsTCUz djUYki\\"><th colspan=\\"1\\" role=\\"columnheader\\">Name</th><th colspan=\\"1\\" role=\\"columnheader\\">Age</th></tr></thead><tbody role=\\"rowgroup\\"><tr role=\\"row\\" class=\\"sc-gsTCUz cpdRCx\\"><td role=\\"cell\\" class=\\"sc-dlfnbm hmmfNk\\">foo</td><td role=\\"cell\\" class=\\"sc-dlfnbm hmmfNk\\">12</td></tr></tbody></table>"`;
+exports[`Table renders with sample data 1`] = `"<table class=\\"sc-bdfBwQ iYunag\\" role=\\"table\\"><thead><tr role=\\"row\\" class=\\"sc-gsTCUz kGUbwO\\"><th colspan=\\"1\\" role=\\"columnheader\\">Name</th><th colspan=\\"1\\" role=\\"columnheader\\">Age</th></tr></thead><tbody role=\\"rowgroup\\"><tr role=\\"row\\" class=\\"sc-gsTCUz dGdWN\\"><td role=\\"cell\\" class=\\"sc-dlfnbm hWxGDI\\">foo</td><td role=\\"cell\\" class=\\"sc-dlfnbm hWxGDI\\">12</td></tr></tbody></table>"`;
 
-exports[`Table renders without data 1`] = `"<table class=\\"sc-bdfBwQ kFtYhk\\" role=\\"table\\"><thead></thead><tbody role=\\"rowgroup\\"></tbody></table>"`;
+exports[`Table renders without data 1`] = `"<table class=\\"sc-bdfBwQ iYunag\\" role=\\"table\\"><thead></thead><tbody role=\\"rowgroup\\"></tbody></table>"`;
