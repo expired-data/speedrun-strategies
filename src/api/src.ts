@@ -151,6 +151,14 @@ export const getLeaderboards = async (
   return response.data;
 };
 
+export const getRun = async (runId: string): Promise<RunType> => {
+  const url = `${apiBase}/runs/${runId}`;
+
+  const response: { data: RunType } = await (await fetch(url)).json();
+
+  return response.data;
+};
+
 /*eslint-disable-next-line @typescript-eslint/no-explicit-any*/
 export const useGetData = <T, Args extends any[]>(
   getDataFn: (...args: Args) => Promise<T>,

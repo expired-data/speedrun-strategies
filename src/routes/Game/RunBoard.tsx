@@ -1,4 +1,5 @@
 import React, { FC, useMemo } from "react";
+import { useHistory } from "react-router-dom";
 
 import {
   PlayerRunType,
@@ -21,12 +22,13 @@ export interface Props {
 }
 
 export const RunBoard: FC<Props> = ({ categoryId, gameId, onlyWithStrats }) => {
+  const history = useHistory();
   const leaderboard = useGetData(getLeaderboards, categoryId, gameId);
 
   const runsWithPlayerNames: PlayerRunType[] = useMemo(
     () =>
       leaderboard?.runs
-        .map((run, id) => ({
+        .map((run) => ({
           ...run.run,
           players: run.run.players.map((player) => {
             let resultantPlayer: Player | undefined;
@@ -49,11 +51,7 @@ export const RunBoard: FC<Props> = ({ categoryId, gameId, onlyWithStrats }) => {
             return resultantPlayer;
           }),
           place: run.place,
-          strats: [
-            ...(id === 0
-              ? [{ run: run.run.id, timestamp: "12", comment: "nice strat" }]
-              : []), //todo get strats
-          ],
+          strats: [],
         }))
         .filter((run) => !onlyWithStrats || run.strats.length > 0) || [],
     [leaderboard, onlyWithStrats]
@@ -97,5 +95,13 @@ export const RunBoard: FC<Props> = ({ categoryId, gameId, onlyWithStrats }) => {
     return <div>Loading...</div>;
   }
 
-  return <Table<PlayerRunType> data={runsWithPlayerNames} columns={columns} />;
+  return (
+    <Table<PlayerRunType>
+      data={runsWithPlayerNames}
+      columns={columns}
+      rowClick={(row) => {
+        history.push(`/run/${row.original.id}`);
+      }}
+    />
+  );
 };
