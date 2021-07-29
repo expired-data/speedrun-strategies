@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { NotFound } from "./NotFound";
 import { GamesList } from "./GameList";
 import { Game } from "./Game";
