@@ -1,5 +1,5 @@
 import React from "react";
-import { Column, useTable } from "react-table";
+import { Column, Row, useTable } from "react-table";
 import styled from "styled-components";
 
 const StyledTable = styled.table`
@@ -31,12 +31,14 @@ export interface Props<D extends Record<string, unknown>> {
   data: D[];
   columns: Column<D>[];
   className?: string;
+  rowClick?: (row: Row<D>) => void;
 }
 
 export const Table = <D extends Record<string, unknown>>({
   data,
   columns,
   className,
+  rowClick,
 }: Props<D>): JSX.Element => {
   const {
     getTableProps,
@@ -61,7 +63,14 @@ export const Table = <D extends Record<string, unknown>>({
         {rows.map((row, i) => {
           prepareRow(row);
           return (
-            <StyledTr selectable={true} index={i} {...row.getRowProps()}>
+            <StyledTr
+              selectable={true}
+              index={i}
+              onClick={((row) => () => {
+                rowClick && rowClick(row);
+              })(row)}
+              {...row.getRowProps()}
+            >
               {row.cells.map((cell) => {
                 return (
                   <StyledTd {...cell.getCellProps()}>

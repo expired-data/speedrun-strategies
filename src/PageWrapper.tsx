@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, { FC } from "react";
 
 const Content = styled.div`
-  margin: 60px 10vw 0;
+  margin: 60px 0 0;
   padding: 50px;
   background-color: #eee;
   overflow: auto;
