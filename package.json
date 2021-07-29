@@ -6,13 +6,16 @@
   "repository": "https://github.com/expired-data/speedrun-strategies",
   "author": "expired-data",
   "license": "UNLICENSED",
+  "homepage": "https://expired-data.github.io/speedrun-strategies",
   "private": true,
   "scripts": {
     "start": "webpack serve",
     "build": "webpack",
     "test": "jest",
     "postinstall": "husky install",
-    "lint": "eslint src/**/*.tsx src/**/*.ts --fix --max-warnings=0"
+    "lint": "eslint src/**/*.tsx src/**/*.ts --fix --max-warnings=0",
+    "predeploy": "npm run build",
+    "deploy": "npx gh-pages -d build"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
