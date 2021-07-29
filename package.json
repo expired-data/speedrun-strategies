@@ -51,9 +51,11 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.21",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.13",
     "dotenv": "^8.2.0",
+    "graphql": "^15.5.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-player": "^2.7.2",
